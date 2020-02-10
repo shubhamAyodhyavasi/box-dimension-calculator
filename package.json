@@ -1,0 +1,49 @@
+{
+  "_args": [
+    [
+      "box-dimension-calculator@1.0.0",
+      "/Users/apple/Downloads/cbdbenev2-master"
+    ]
+  ],
+  "_from": "box-dimension-calculator@1.0.0",
+  "_id": "box-dimension-calculator@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Ct14kkZ4EefbLy6m6knT4KfdYjyzxF92TThwWy0kDGJVk9qAa7rdkyesELf2VzTnxxF8b+kbWH3YpmZ5BbiLAQ==",
+  "_location": "/box-dimension-calculator",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "box-dimension-calculator@1.0.0",
+    "name": "box-dimension-calculator",
+    "escapedName": "box-dimension-calculator",
+    "rawSpec": "1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "1.0.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/box-dimension-calculator/-/box-dimension-calculator-1.0.0.tgz",
+  "_spec": "1.0.0",
+  "_where": "/Users/apple/Downloads/cbdbenev2-master",
+  "author": {
+    "name": "Shubham Ayodhyavasi, Anas M.I."
+  },
+  "bugs": {
+    "url": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator/issues"
+  },
+  "description": "Calculate dimensions of multiple boxes by providing h, w, l. for shipment",
+  "homepage": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "box-dimension-calculator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamAyodhyavasi/box-dimension-calculator.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
