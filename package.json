@@ -6,34 +6,34 @@
     "name": "Shubham Ayodhyavasi, Anas M.I."
   },
   "license": "MIT",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./core": {
-      "import": "./dist/core/index.js",
-      "require": "./dist/core/index.cjs",
-      "types": "./dist/core/index.d.ts"
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.mjs",
+      "require": "./dist/core/index.js"
     },
     "./react": {
-      "import": "./dist/react/index.js",
-      "require": "./dist/react/index.cjs",
-      "types": "./dist/react/index.d.ts"
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.js"
     },
     "./vue": {
-      "import": "./dist/vue/index.js",
-      "require": "./dist/vue/index.cjs",
-      "types": "./dist/vue/index.d.ts"
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.mjs",
+      "require": "./dist/vue/index.js"
     },
     "./angular": {
-      "import": "./dist/angular/index.js",
-      "require": "./dist/angular/index.cjs",
-      "types": "./dist/angular/index.d.ts"
+      "types": "./dist/angular/index.d.ts",
+      "import": "./dist/angular/index.mjs",
+      "require": "./dist/angular/index.js"
     }
   },
   "files": [

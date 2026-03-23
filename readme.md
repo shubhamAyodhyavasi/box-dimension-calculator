@@ -1,6 +1,15 @@
 # box-dimension-calculator
 
+[![npm version](https://img.shields.io/npm/v/box-dimension-calculator?label=latest)](https://www.npmjs.com/package/box-dimension-calculator)
+[![npm legacy](https://img.shields.io/npm/v/box-dimension-calculator/legacy?label=legacy%20%28v1%29&color=orange)](https://www.npmjs.com/package/box-dimension-calculator?activeTab=versions)
+[![CI](https://github.com/shubhamAyodhyavasi/box-dimension-calculator/actions/workflows/publish.yml/badge.svg)](https://github.com/shubhamAyodhyavasi/box-dimension-calculator/actions/workflows/publish.yml)
+[![license](https://img.shields.io/npm/l/box-dimension-calculator)](LICENSE)
+
 A production-ready, framework-agnostic TypeScript library for calculating box dimensions — volume, surface area, and dimensional (volumetric) weight — with optional adapters for React, Vue, and Angular.
+
+> **Upgrading from v1?** See the [Migration Guide](./MIGRATION.md).
+
+---
 
 ## Features
 
@@ -12,6 +21,8 @@ A production-ready, framework-agnostic TypeScript library for calculating box di
 - 🔴 Angular injectable service (`BoxDimensionService`)
 - ✅ Validated inputs with descriptive error messages
 - 🪶 Zero runtime dependencies
+
+---
 
 ## Installation
 
@@ -31,6 +42,8 @@ npm install vue
 # Angular
 npm install @angular/core
 ```
+
+---
 
 ## Usage
 
@@ -52,8 +65,8 @@ console.log(result);
 // }
 
 // Individual calculations
-console.log(getVolume(box));           // 9000
-console.log(getSurfaceArea(box));      // 2700
+console.log(getVolume(box));            // 9000
+console.log(getSurfaceArea(box));       // 2700
 console.log(getDimensionalWeight(box)); // 1.8
 
 // Custom divisor (e.g., 139 for inches)
@@ -120,6 +133,22 @@ export class BoxComponent {
 }
 ```
 
+---
+
+## Demo
+
+A local demo app lives in the [`/demo`](./demo) folder (Vite + React):
+
+```bash
+cd demo
+npm install
+npm run dev
+```
+
+Open http://localhost:5173 to see live calculations.
+
+---
+
 ## API Reference
 
 ### Types
@@ -181,6 +210,8 @@ Injectable service (provided in root). Methods:
 - `getSurfaceArea(input): number`
 - `getDimensionalWeight(input, divisor?): number`
 
+---
+
 ## Example Output
 
 ```
@@ -192,6 +223,87 @@ Output: {
   unit: 'cm'
 }
 ```
+
+---
+
+## Versioning
+
+| npm tag | Version | Branch |
+|---------|---------|--------|
+| `latest` | v2.x | `main` / `feat/v2` |
+| `legacy` | v1.x | `release/v1.0.1` |
+
+Install a specific version:
+
+```bash
+npm install box-dimension-calculator@latest  # v2 (default)
+npm install box-dimension-calculator@legacy  # v1
+npm install box-dimension-calculator@2.0.0   # exact version
+npm install box-dimension-calculator@1.0.1   # exact version
+```
+
+---
+
+## v1 → v2 Migration
+
+See [MIGRATION.md](./MIGRATION.md) for a full breakdown of breaking changes and
+before/after code examples.
+
+**TL;DR:**
+
+| v1 | v2 |
+|----|-----|
+| `combineLoop(items)` | `calculateBox(input)` |
+| `{ h, w, l }` | `{ height, width, length, unit? }` |
+| Returns merged bounding box | Returns `{ volume, surfaceArea, dimensionalWeight }` |
+| No types, no validation | TypeScript types + strict validation |
+
+---
+
+## Release Workflow
+
+New releases are published automatically via GitHub Actions when a version tag
+is pushed:
+
+```bash
+# Publish v2 (latest)
+git tag v2.0.0 && git push origin v2.0.0
+
+# Publish v1 patch (legacy)
+git checkout release/v1.0.1
+git tag v1.0.1 && git push origin v1.0.1
+```
+
+See [`.github/workflows/publish.yml`](./.github/workflows/publish.yml) for details.
+
+---
+
+## Git Branching Strategy
+
+```
+main
+ ├── release/v1.0.1   ← v1 code, published as @legacy
+ └── feat/v2          ← v2 development
+```
+
+To set up the branches locally:
+
+```bash
+# Create and push the v1 release branch + tag
+git checkout -b release/v1.0.1 <v1-commit-sha>
+git push origin release/v1.0.1
+git tag v1.0.1
+git push origin v1.0.1
+
+# Mark v1 as the legacy dist-tag after publishing
+npm dist-tag add box-dimension-calculator@1.0.1 legacy
+
+# Create v2 feature branch
+git checkout -b feat/v2 main
+git push origin feat/v2
+```
+
+---
 
 ## License
 
