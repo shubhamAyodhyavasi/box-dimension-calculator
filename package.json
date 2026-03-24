@@ -1,49 +1,101 @@
 {
-  "_args": [
-    [
-      "box-dimension-calculator@1.0.0",
-      "/Users/apple/Downloads/cbdbenev2-master"
-    ]
-  ],
-  "_from": "box-dimension-calculator@1.0.0",
-  "_id": "box-dimension-calculator@1.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-Ct14kkZ4EefbLy6m6knT4KfdYjyzxF92TThwWy0kDGJVk9qAa7rdkyesELf2VzTnxxF8b+kbWH3YpmZ5BbiLAQ==",
-  "_location": "/box-dimension-calculator",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "box-dimension-calculator@1.0.0",
-    "name": "box-dimension-calculator",
-    "escapedName": "box-dimension-calculator",
-    "rawSpec": "1.0.0",
-    "saveSpec": null,
-    "fetchSpec": "1.0.0"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/box-dimension-calculator/-/box-dimension-calculator-1.0.0.tgz",
-  "_spec": "1.0.0",
-  "_where": "/Users/apple/Downloads/cbdbenev2-master",
+  "name": "box-dimension-calculator",
+  "version": "2.0.0",
+  "description": "A production-ready, framework-agnostic TypeScript library for calculating box dimensions with optional React, Vue, and Angular adapters",
   "author": {
     "name": "Shubham Ayodhyavasi, Anas M.I."
   },
-  "bugs": {
-    "url": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator/issues"
-  },
-  "description": "Calculate dimensions of multiple boxes by providing h, w, l. for shipment",
-  "homepage": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator#readme",
   "license": "MIT",
-  "main": "index.js",
-  "name": "box-dimension-calculator",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.mjs",
+      "require": "./dist/core/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.mjs",
+      "require": "./dist/vue/index.js"
+    },
+    "./angular": {
+      "types": "./dist/angular/index.d.ts",
+      "import": "./dist/angular/index.mjs",
+      "require": "./dist/angular/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@angular/core": "^21.2.5",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.1.0",
+    "prettier": "^3.8.1",
+    "react": "^19.2.4",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0",
+    "vue": "^3.5.30"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=12.0.0",
+    "react": ">=17.0.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    },
+    "@angular/core": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "box",
+    "dimensions",
+    "calculator",
+    "shipping",
+    "typescript",
+    "react",
+    "vue",
+    "angular"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shubhamAyodhyavasi/box-dimension-calculator.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bugs": {
+    "url": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator/issues"
   },
-  "version": "1.0.0"
+  "homepage": "https://github.com/shubhamAyodhyavasi/box-dimension-calculator#readme"
 }

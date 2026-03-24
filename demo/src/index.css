@@ -1,0 +1,135 @@
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ───────────────────────────────────────────────────────────────────── */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --error: #ef4444;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.06);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body { min-height: 100dvh; }
+
+/* ── Layout ─────────────────────────────────────────────────────────────────── */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+header { text-align: center; }
+header h1 { font-size: 2rem; font-weight: 700; }
+.subtitle { margin-top: .4rem; color: var(--text-muted); font-size: .9rem; }
+.subtitle code {
+  background: var(--border);
+  padding: .1em .4em;
+  border-radius: 4px;
+  font-size: .85em;
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 1rem; }
+
+/* ── Inputs ─────────────────────────────────────────────────────────────────── */
+.inputs { display: flex; flex-direction: column; gap: .9rem; }
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+label {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+input[type="number"],
+select {
+  padding: .5rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: border-color .15s;
+}
+input[type="number"]:focus,
+select:focus { border-color: var(--primary); }
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.hint { font-size: .78rem; color: var(--text-muted); }
+
+/* ── Results ────────────────────────────────────────────────────────────────── */
+.results dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem 1rem;
+}
+.results dt {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  align-self: end;
+}
+.results dd {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ── Error ───────────────────────────────────────────────────────────────────── */
+.error { border-color: var(--error); }
+.error h2 { color: var(--error); }
+.error p  { font-size: .9rem; }
+
+/* ── Code block ─────────────────────────────────────────────────────────────── */
+.code pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: .8rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  font-size: .85rem;
+  color: var(--text-muted);
+}
+footer a { color: var(--primary); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
