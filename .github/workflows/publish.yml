@@ -13,7 +13,7 @@ jobs:
   ci:
     name: Lint · Build · Test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/tags/release'
     permissions:
       contents: read
     steps:
@@ -42,7 +42,7 @@ jobs:
     name: Publish to npm
     needs: ci
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/tags/release'
     permissions:
       contents: read
       id-token: write
