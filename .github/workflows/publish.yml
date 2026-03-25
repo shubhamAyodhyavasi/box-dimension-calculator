@@ -1,18 +1,19 @@
 name: CI / Publish to npm
 
+# Trigger only manually
 on:
-  push:
-    tags:
-      - 'v*'
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (optional)'
+        required: false
+        default: ''
 
 jobs:
-  # ── CI: runs on every PR and every version tag ──────────────────────────────
   ci:
     name: Lint · Build · Test
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/release'
     permissions:
       contents: read
     steps:
@@ -37,15 +38,14 @@ jobs:
       - name: Test
         run: npm test
 
-  # ── Publish: runs only when a version tag (v*) is pushed ────────────────────
   publish:
     name: Publish to npm
     needs: ci
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.ref == 'refs/heads/release'
     permissions:
       contents: read
-      id-token: write  # for npm provenance
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -66,9 +66,6 @@ jobs:
       - name: Test
         run: npm test
 
-      # Determine the npm dist-tag from the version in package.json:
-      #   • major == 1  →  tag "legacy"
-      #   • major >= 2  →  tag "latest"
       - name: Determine dist-tag
         id: dist_tag
         run: |
